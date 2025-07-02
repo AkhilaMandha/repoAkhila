@@ -1,0 +1,59 @@
+
+
+CREATE COMPUTE MODULE cdata_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+	
+	
+	
+--	DECLARE bodyBlob BLOB CAST (InputRoot.XMLNSC.test AS BLOB CCSID 1200);
+---- Parse the blob content (which contains the CDATA part) into XML
+----The CREATE LASTCHILD OF OutputRoot DOMAIN statement parses the CDATA content from bodyBlob back into a proper XML structure.
+--CREATE LASTCHILD OF OutputRoot DOMAIN('XMLNSC') PARSE(bodyBlob CCSID 1200 ENCODING InputRoot.Properties.Encoding
+--        SET 'XMLNSC'
+--        TYPE 'XMLNSC');
+	
+	
+	
+	
+
+   IF InputRoot.XMLNSC.root.test IS NOT NULL THEN
+   
+    DECLARE bodyBlob BLOB CAST(InputRoot.XMLNSC.root.test AS BLOB CCSID 1200);
+
+
+    IF bodyBlob IS NOT NULL THEN
+
+        CREATE LASTCHILD OF OutputRoot DOMAIN('XMLNSC') 
+            PARSE(bodyBlob CCSID 1200 ENCODING InputRoot.Properties.Encoding 
+            SET 'XMLNSC' TYPE 'XMLNSC');
+    ELSE
+        SET OutputRoot.XMLNSC.ErrorMessage = 'bodyBlob is NULL';
+    END IF;
+ELSE
+    SET OutputRoot.XMLNSC.ErrorMessage = 'InputRoot.XMLNSC.root.test is NULL';
+END IF;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	-- Step 1: Create a BLOB from the Input XML
+--DECLARE wholeMsgBlob BLOB ASBITSTREAM(
+--    InputRoot.XMLNSC,
+--    InputRoot.Properties.Encoding,
+--    InputRoot.Properties.CodedCharSetId
+--);
+--DECLARE wholeMsgChar CHAR CAST(wholeMsgBlob AS CHAR CCSID InputRoot.Properties.CodedCharSetId);
+--
+--SET OutputRoot.XMLNSC.Output.(XMLNSC.CDataField)Field1 = wholeMsgChar;
+
+		RETURN TRUE;
+
+	END;
+END MODULE;
