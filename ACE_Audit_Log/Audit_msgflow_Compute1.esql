@@ -1,0 +1,51 @@
+
+
+CREATE COMPUTE MODULE Audit_msgflow_Compute1
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+
+
+
+DECLARE A,C,B INTEGER;
+		SET OutputLocalEnvironment=InputLocalEnvironment;
+		SET A=Environment.Destination.DestinationData.A;
+		SET B=Environment.Destination.DestinationData.B;
+		SET Environment.flag=2;
+		propagate to TERMINAL 'out';
+--		SET A=Environment.Destination.DestinationData.A;
+--		SET B=Environment.Destination.DestinationData.B;
+		SET C=A+B;
+		SET Environment.Destination.DestinationData.C=C;
+		SET OutputRoot.JSON.Data.C=C;
+		SET OutputLocalEnvironment=InputLocalEnvironment;
+		SET Environment.flag=4;
+		
+		
+		
+		RETURN TRUE;
+	END;
+
+		
+-- DECLARE a1 INTEGER;
+-- DECLARE b1 INTEGER;
+-- SET a1 = InputRoot.JSON.Data.a1;
+-- SET b1= InputRoot.JSON.Data.b1;
+--
+-- SET OutputRoot.JSON.Data.result=a1+b1;
+-- 
+-- SET OutputRoot.HTTPInputHeader=InputRoot.HTTPInputHeader;
+
+ 
+ --SET OutputLocalEnvironment=InputLocalEnvironment;
+ 
+ --SET OutputRoot=InputRoot;
+ 
+ 
+ 
+ 
+  -- PROPAGATE TO terminal 'out1';
+  -- PROPAGATE TO terminal 'out';
+
+--RETURN TRUE;
+ -- END;
+END MODULE;
