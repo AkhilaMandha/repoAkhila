@@ -1,0 +1,28 @@
+
+
+CREATE COMPUTE MODULE convert_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		
+		 SET OutputRoot = InputRoot;
+--		 SET OutputLocalEnvironment=InputLocalEnvironment;
+--
+--        DECLARE InputText CHARACTER InputRoot.XMLNSC.Data.InputText;
+--
+--       
+--        DECLARE Char1 CHARACTER SUBSTRING(InputText FROM 1 FOR 1);
+--        DECLARE Char2 CHARACTER SUBSTRING(InputText FROM 2 FOR 1);
+--        DECLARE Char3 CHARACTER SUBSTRING(InputText FROM 3 FOR 1);
+--
+--      
+--        SET OutputRoot.XMLNSC.Data.Char1 = Char1;
+--        SET OutputRoot.XMLNSC.Data.Char2 = Char2;
+--        SET OutputRoot.XMLNSC.Data.Char3 = Char3;
+
+        RETURN TRUE;
+    END;
+END MODULE;
+		
