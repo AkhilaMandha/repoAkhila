@@ -1,0 +1,87 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "AccountRestSwagger",
+    "version" : "1.0.0",
+    "description" : "AccountRestSwagger"
+  },
+  "paths" : {
+    "/Details" : {
+      "post" : {
+        "operationId" : "postDetails",
+        "responses" : {
+          "202" : {
+            "description" : "successfully created",
+            "schema" : {
+              "$ref" : "#/definitions/AccountDetails"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a Details",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/Details"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/accountrestswagger/v1",
+  "definitions" : {
+    "Details" : {
+      "type" : "object",
+      "properties" : {
+        "account" : {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "type" : "integer"
+            },
+            "pancard" : {
+              "type" : "integer"
+            },
+            "aadhar" : {
+              "type" : "integer"
+            }
+          }
+        },
+        "address" : {
+          "type" : "object",
+          "properties" : {
+            "city" : {
+              "type" : "string"
+            },
+            "state" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "AccountDetails" : {
+      "type" : "object",
+      "properties" : {
+        "result" : {
+          "type" : "object",
+          "properties" : {
+            "AccountNo" : {
+              "type" : "integer"
+            },
+            "statuscode" : {
+              "type" : "string"
+            },
+            "description" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

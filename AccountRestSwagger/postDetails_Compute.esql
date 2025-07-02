@@ -1,0 +1,63 @@
+
+
+CREATE COMPUTE MODULE postDetails_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		
+		DECLARE  InputBlob BLOB;
+         DECLARE AccountNo INTEGER;
+          DECLARE AccountNumber INTEGER;
+		DECLARE statuscode CHARACTER 202;
+		DECLARE aadhar INTEGER;
+		DECLARE count INTEGER;
+		DECLARE pancard CHARACTER;
+		DECLARE description CHARACTER 'Successfully created...';
+		DECLARE Message CHARACTER;
+--		DECLARE inpRef REFERENCE TO InputRoot.JSON.Data.personaldetails;
+-- --		SET ACCOUNTNO=CAST(RAND()*1000000 AS INTEGER);
+ 		SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode=202;
+-- 		
+ 		SET count= CARDINALITY(InputRoot.JSON.Data.Details.account.[]);
+
+			DECLARE i INTEGER;
+			SET i=1;
+				WHILE i<=count DO
+					SET OutputRoot.JSON.Data.AccountDetails.result[i].name=InputRoot.JSON.Data.Details.account[i].name;
+					SET AccountNo =  CAST(RAND()*1000000000 AS INTEGER);
+					--SET ACCOUNTNO=CAST(RAND()*100000000000000 AS INTEGER);
+					SET InputBlob=CAST( AccountNo AS BLOB CCSID 1208);
+					SET OutputRoot.JSON.Data.outputdetails.result[i].AccountNumber=BASE64ENCODE(InputBlob);
+					--SET OutputRoot.JSON.Data.outputdetails.result[i].statuscode=statuscode;
+					--SET OutputRoot.JSON.Data.outputdetails.result[i].description=description;
+					--IF OutputRoot.JSON.Data.AccountDetails.result[1].pancard IS NULL THEN
+		--			   OutputRoot.JSON.Data.details.result[1].panno  =  InputRoot.JSON.Data.personaldetails.account[i].panno;
+					   SET OutputRoot.JSON.Data.AccountDetails.result[i].AccountNo=AccountNumber;
+					   SET OutputRoot.JSON.Data.AccountDetails.result[i].statuscode=statuscode;
+					SET OutputRoot.JSON.Data.AccountDetails.result[i].description=description;
+					   
+				--	ELSEIF InputRoot.JSON.Data.AccountDetails.account[i-1].pancard<> InputRoot.JSON.Data.Details.account[i].pancard THEN
+----	--					   OutputRoot.JSON.Data.details.result[i].panno=InputRoot.JSON.Data.personaldetails.account[i].panno;
+					
+					SET OutputRoot.JSON.Data.AccountDetails.result[i].AccountNo=AccountNo;
+					SET OutputRoot.JSON.Data.AccountDetails.result[i].statuscode=statuscode;
+					SET OutputRoot.JSON.Data.AccountDetails.result[i].description=description;	
+					
+					--ELSE 
+						--SET OutputRoot.JSON.Data.message='Account Already Exist';
+					--END IF;
+					SET i=i+1;
+				END WHILE;
+		
+
+
+END;
+
+
+
+END MODULE;
+
+
+
