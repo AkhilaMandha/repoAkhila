@@ -1,0 +1,42 @@
+
+
+CREATE COMPUTE MODULE attribute_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		
+		
+		
+
+
+--SET OutputRoot.XMLNSC.Details.(XMLNSC.Attribute)id = '15';
+--SET OutputRoot.XMLNSC.Details.(XMLNSC.Attribute)name= 'akhila';
+--
+--
+--SET OutputRoot.XMLNSC.Details.Age = '30';
+--SET OutputRoot.XMLNSC.Details.Address = 'Adilabad';
+--
+--		RETURN TRUE;
+--	END;
+
+
+
+
+
+
+
+DECLARE inputId CHARACTER InputRoot.XMLNSC.request.Details.id;
+DECLARE inputName CHARACTER InputRoot.XMLNSC.request.Details.name;
+DECLARE inputAge CHARACTER InputRoot.XMLNSC.request.Details.Age;
+DECLARE inputAddress CHARACTER InputRoot.XMLNSC.request.Details.Address;
+
+SET OutputRoot.XMLNSC.Details.(XMLNSC.Attribute)id = inputId;
+SET OutputRoot.XMLNSC.Details.(XMLNSC.Attribute)name = inputName;
+
+SET OutputRoot.XMLNSC.Details.Age = inputAge;
+SET OutputRoot.XMLNSC.Details.Address = inputAddress;
+
+RETURN TRUE;
+END;
+END MODULE;
+
