@@ -1,0 +1,44 @@
+
+
+CREATE COMPUTE MODULE flowwww_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	
+	BEGIN
+--		-- ESQL code in the Compute node
+--DECLARE jsoninfo CHARACTER;
+--DECLARE signatureinfo CHARACTER;
+--DECLARE sharedkeyinfo CHARACTER;
+--DECLARE decryptedSharedKey CHARACTER;
+--DECLARE privateKeyBase64 CHARACTER;
+--DECLARE encryptedSharedKeyBase64 CHARACTER;
+--
+--SET jsoninfo = InputRoot.JSON.Data.jsoninfo;
+--SET signatureinfo = InputRoot.JSON.Data.signatureinfo;
+--SET sharedkeyinfo = InputRoot.JSON.Data.sharedkeyinfo;
+
+---- Assume you have your private key in Base64 format
+----DECLARE privateKeyBase64 CHARACTER ;
+----SET privateKeyBase64="D:\\cryptographytask\\private_key.pem";-- Replace with your actual private key
+--
+---- Call Java function to decrypt the shared key using the stored private key
+--
+--  SET decryptedSharedKey=myproc9(encryptedSharedKeyBase64, privateKeyBase64);
+--
+---- Now you have the decrypted shared key, you can continue processing
+--SET OutputRoot.JSON.Data.decryptedSharedKey = decryptedSharedKey;
+--SET OutputRoot.JSON.Data.jsoninfo = jsoninfo;
+--SET OutputRoot.JSON.Data.signatureinfo = signatureinfo;
+--
+--RETURN TRUE;
+--END;
+--  CREATE PROCEDURE myproc9(IN encryptedSharedKeyBase64 CHARACTER,IN privateKeyBase64 CHARACTER) 
+--    RETURNS CHARACTER
+--    LANGUAGE JAVA 
+--     EXTERNAL NAME "decryptedsharedkeypackage.decryptedsharedkeyclass.decryptSharedKey"; 
+--
+--	
+SET OutputRoot= InputRoot;
+RETURN TRUE;
+END;
+END MODULE;
+

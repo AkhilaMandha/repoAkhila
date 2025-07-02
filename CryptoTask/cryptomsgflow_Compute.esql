@@ -1,0 +1,138 @@
+
+
+CREATE COMPUTE MODULE cryptomsgflow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		
+ --SET text = secretkeygen(text);
+		
+		DECLARE info CHARACTER;
+		DECLARE info1 CHARACTER;
+			DECLARE message CHARACTER;
+			DECLARE result CHARACTER;
+		DECLARE	originalData CHARACTER;
+				---DECLARE publicKey CHARACTER;
+				
+				 DECLARE sharedKey CHARACTER 'info1';	
+	  DECLARE privateKeyPath CHARACTER 'D:/cryptographytask/privatekeyflow1.pem';
+        DECLARE publicKeyPath CHARACTER 'D:/cryptographytask/publickeyflow1.pem';
+        DECLARE publicKeyBase64 CHARACTER 'D:/cryptographytask/publickeyflow1.pem';
+        
+			--DECLARE sharedKeyBase64 CHARACTER;
+		--	DECLARE publicKeyBase64 CHARACTER;
+		DECLARE info12 CHARACTER;
+		DECLARE info13 CHARACTER;
+		DECLARE info14 CHARACTER;
+			DECLARE s CHARACTER;
+	
+ SET info1 = InputRoot.JSON.Data.info; 
+ SET message = InputRoot.JSON.Data.signature;
+ --SET info1=InputRoot.JSON.Data.info1;
+
+ --SET sharedKeyBase64 = InputRoot.JSON.Data.infoo; 
+ --SET publicKeyBase64 = InputRoot.JSON.Data.publickey; 
+
+ --SET info1 = InputRoot.JSON.Data.info1; 
+ --SET publicKey= InputRoot.JSON.Data.publickey1; 
+ --SET sharedKeyBase64 = InputRoot.JSON.Data.sharedkey, publicKeyBase64 = InputRoot.JSON.Data.publickey;
+ 
+  SET info12 = myproc4();
+ SET info13 = myproc5(message);
+ --SET info14 = myproc7(info1,publicKey);
+ --SET info14 = myproc6(sharedKeyBase64);
+ 
+ SET result = myproc6(privateKeyPath ,publicKeyPath);
+-- SET s=encryptSharedKey(info12,publicKeyBase64);
+ 
+ SET s= nara(originalData);
+ 
+  SET OutputRoot.JSON.Data.jsoninfo = info12; 
+	SET OutputRoot.JSON.Data.signatureinfo = info13; 
+	SET OutputRoot.JSON.Data.publicprivatekeys = result;	
+		SET OutputRoot.JSON.Data.encryptedsharedkey = s;	
+--	SET OutputRoot.JSON.Data.sharedkeyinfo = info14; 	
+	
+	
+
+        -- Declare a CHARACTER variable to hold the result
+       
+--SET result = myproc6('D:/cryptographytask/privatekeyflow1.pem', 'D:/cryptographytask/publickeyflow1.pem');
+--SET OutputRoot.JSON.Data.result = result;
+
+        -- Call the Java method
+      -- SET result = EncryptSharedKeyClass.generateAndSaveKeyPair(privateKeyPath, publicKeyPath);
+
+        -- Example: Log or use the result
+      --  SET OutputRoot.JSON.Data.result = result;
+		RETURN TRUE;
+	
+	END;
+
+
+
+        -- here we are generating the shared key 
+    CREATE PROCEDURE myproc4() 
+    RETURNS CHARACTER
+    LANGUAGE JAVA 
+     EXTERNAL NAME "generatesecretkeypackage.generatesecretkeyclass.getSecretKey"; 
+
+-- here we are generating the signature
+ CREATE PROCEDURE myproc5(IN message CHARACTER) 
+    RETURNS CHARACTER
+    LANGUAGE JAVA 
+     EXTERNAL NAME "signaturepackage.signatureclass.createSignature"; 
+     
+     --here we are enrypting the shared key with public key of flow2
+      CREATE PROCEDURE myproc6(IN privateKeyPath CHARACTER, IN publicKeyPath CHARACTER) 
+    RETURNS CHARACTER
+    LANGUAGE JAVA 
+     EXTERNAL NAME "encryptsharedkeypackage.encryptsharedkeyclass.generateAndSaveKeyPair";
+
+      
+      
+      CREATE PROCEDURE encryptSharedKey(IN info12 CHARACTER, IN publicKeyBase64 CHARACTER) 
+        RETURNS CHARACTER
+        LANGUAGE JAVA 
+        EXTERNAL NAME "encryptsharedkeypackage.encryptsharedkeyclass.encryptSharedKeyWithPublicKey";
+      
+      
+      
+      
+        CREATE PROCEDURE nara(IN originalData  CHARACTER) 
+        RETURNS CHARACTER
+        LANGUAGE JAVA 
+        EXTERNAL NAME "sharedkeyencryptpackage.sharedkeyencryptclass.encryptionUsingSharedKey";
+      
+    
+END MODULE;
+     
+     
+     
+--          CREATE PROCEDURE myproc6(IN sharedKeyBase64 CHARACTER) 
+--    RETURNS CHARACTER
+--    LANGUAGE JAVA 
+--     EXTERNAL NAME "encryptsecretkeypackage.encryptsecretkeyclass.encryptSharedKey"; 
+--END MODULE;
+--     
+     
+--     
+--     CREATE PROCEDURE myproc7(IN info1 CHARACTER, IN publicKey CHARACTER) 
+--RETURNS CHARACTER
+--LANGUAGE JAVA 
+--EXTERNAL NAME "encryptsecretkeypackage.encryptsecretkeyclass.getSecretKey"; 
+--     
+--     END MODULE;
+--     CREATE PROCEDURE myproc7(IN info1 CHARACTER, IN publicKey CHARACTER) 
+--    RETURNS CHARACTER
+--    LANGUAGE JAVA 
+--     EXTERNAL NAME "encryptsecretkeypackage.encryptsecretkeyclass.getSecretKey"; 
+--END MODULE;
+     
+--     CREATE PROCEDURE myproc6(IN sharedKeyBase64 CHARACTER, IN publicKeyBase64 CHARACTER) 
+--    RETURNS CHARACTER
+--    LANGUAGE JAVA 
+--     EXTERNAL NAME "encryptsharedkeypackage.encryptsharedkeyclass.encryptSharedKey"; 
+--END MODULE;
