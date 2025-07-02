@@ -1,0 +1,99 @@
+
+
+CREATE COMPUTE MODULE aepmsgflow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+--		
+--		DECLARE result,text,originalData,originalData1 CHARACTER;
+--			SET originalData1=InputRoot.JSON.Data.text;
+--	
+----		call rsawithsha512(data,algorithm,hashAlgorithm) into result;
+--	SET result=performEncryptionDecryptionproc(originalData);
+--	--SET result1=SHA512DSAproc(data);
+--	--SET result2=SHA256RSAproc(data);
+--	
+--	                  -- SHA256RSAproc(data2
+--		SET OutputRoot.JSON.Data.HashingSignature=result;
+--		RETURN TRUE;
+--	END;
+--	
+--CREATE PROCEDURE performEncryptionDecryptionproc(IN originalData CHARACTER) 
+--RETURNS CHARACTER 
+--LANGUAGE JAVA
+--EXTERNAL NAME "AlgoEncryptPaddingPackage.AesCbcPkcs5Class.performEncryptionDecryption";
+
+
+              
+             
+              
+              
+              
+              
+        --    returningDecryptedText(String input, String algorithm, String encmode, String padding 
+    
+    	DECLARE input,algorithm,encryptionMode,padding,result character;
+		SET input=InputRoot.JSON.Data.input;
+		SET algorithm=InputRoot.JSON.Data.algorithm;
+		SET encryptionMode=InputRoot.JSON.Data.encryptionMode;
+		SET padding=InputRoot.JSON.Data.padding;
+		
+		
+		call myproc(input,algorithm,encryptionMode, padding) into result;
+		--SET result=call myproc(input,algorithm,encryptionMode, padding);
+		SET OutputRoot.JSON.Data.Result=result;
+		
+		
+		
+		RETURN TRUE;
+	END;
+CREATE PROCEDURE myproc (IN input CHARACTER,IN algorithm CHARACTER,IN encryptionMode CHARACTER,IN padding CHARACTER) 
+RETURNS character 
+LANGUAGE JAVA
+EXTERNAL NAME "algoencryptpadding.Algoencrypadd.EncryptionDecryption";
+
+END MODULE;
+    
+    
+    
+    
+    
+    
+    
+    
+              
+           
+    /*       
+           
+              
+              
+        DECLARE input,algorithm,encmode,padding,result,result1,publicKey, privateKey character;
+		SET input=InputRoot.JSON.Data.input;
+		SET algorithm=InputRoot.JSON.Data.algorithm;
+		SET encmode=InputRoot.JSON.Data.encmode;
+		SET padding=InputRoot.JSON.Data.padding;
+		
+		call resultingdecrypted(input,algorithm,encmode,padding) into result;
+		
+		
+		 SET result1=resultingdecryptednopadding(input,algorithm,encmode,padding);
+	
+		SET OutputRoot.JSON.Data.Result=result;
+		
+	SET OutputRoot.JSON.Data.Result1=result1;
+		
+		--,IN publicKey char,IN privateKey char
+		
+		RETURN TRUE;
+	END;
+create PROCEDURE resultingdecrypted(IN input char,IN algorithm char,In encmode char,IN padding char) 
+RETURNS character 
+LANGUAGE JAVA
+EXTERNAL NAME "algoencryptpadding.AesCbcPkcs5.returningEncryptedAndDecryptedText";   
+--
+create PROCEDURE resultingdecryptednopadding(IN input char,IN algorithm char,In encmode char,IN padding char) 
+RETURNS character 
+LANGUAGE JAVA 
+EXTERNAL NAME "algoencryptpadding.AesCbcNoPadding.returningEncryptedAndDecryptedText";   
+--   
+ END MODULE;   */

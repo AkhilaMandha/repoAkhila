@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://tempuri.org/calculator_ms" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/calculator_ms" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/calculator_ms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/calculator_ms">
+                                                                                    
+  <xsd:complexType name="Request">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:intA"/>
+                
+      <xsd:element ref="mrm:intB"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="Response">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:resultC"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="ErrorMessage">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:fcode"/>
+                
+      <xsd:element ref="mrm:fmessage"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:element name="intA" type="xsd:int"/>
+              
+  <xsd:element name="intB" type="xsd:int"/>
+              
+  <xsd:element name="resultC" type="xsd:int"/>
+              
+  <xsd:element name="fcode" type="xsd:int"/>
+              
+  <xsd:element name="fmessage" type="xsd:string"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="Request" type="mrm:Request"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="Response" type="mrm:Response"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="ErrorMessage" type="mrm:ErrorMessage"/>
+          
+</xsd:schema>

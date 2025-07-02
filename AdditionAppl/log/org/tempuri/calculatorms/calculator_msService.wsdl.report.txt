@@ -1,0 +1,23 @@
+
+
+Importing file: C:\Users\LENOVO\IBM\ACET12\workspace\calculator_msp\calculator_msService.wsdl
+
+Copying source WSDL calculator_msService.wsdl to calculator_msService.wsdl.
+The WSDL import will proceed with bindings calculator_msSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/Users/LENOVO/IBM/ACET12/workspace/calculator_msp/calculator_msService.wsdl.
+Parsing wsdl binding {http://tempuri.org/calculator_ms}calculator_msSOAP_HTTP_Binding.
+Parsing wsdl binding input Operation1.
+Parsing wsdl binding output Operation1.
+Parsing wsdl binding fault Operation1_Fault.
+Processing doc style for operation Operation1.
+Populating WSDL schema calculator_msService.xsd.
+Creating file calculator_msService.xsd in the workspace.
+Creating file calculator_msService_InlineSchema1.xsd in the workspace.
+
+Elapsed time processing this message definition file: 0.103 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+
