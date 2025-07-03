@@ -1,0 +1,35 @@
+
+
+Importing file: C:\Users\LENOVO\IBM\ACET12\workspace\AllOperationMessageProject\AllOperationMessageSetService.wsdl
+
+Copying source WSDL AllOperationMessageSetService.wsdl to AllOperationMessageSetService.wsdl.
+The WSDL import will proceed with bindings AllOperationMessageSetSOAP_HTTP_Binding.
+Creating wsdl schema document for file:///C:/Users/LENOVO/IBM/ACET12/workspace/AllOperationMessageProject/AllOperationMessageSetService.wsdl.
+Parsing wsdl binding {http://tempuri.org/AllOperationMessageSet}AllOperationMessageSetSOAP_HTTP_Binding.
+Parsing wsdl binding input Sub.
+Parsing wsdl binding output Sub.
+Parsing wsdl binding fault Sub_Fault.
+Parsing wsdl binding input Div.
+Parsing wsdl binding output Div.
+Parsing wsdl binding fault Div_Fault.
+Parsing wsdl binding input Multi.
+Parsing wsdl binding output Multi.
+Parsing wsdl binding fault Multi_Fault.
+Parsing wsdl binding input Addition.
+Parsing wsdl binding output Addition.
+Parsing wsdl binding fault Addition_Fault.
+Processing doc style for operation Sub.
+Processing doc style for operation Div.
+Processing doc style for operation Multi.
+Processing doc style for operation Addition.
+Populating WSDL schema AllOperationMessageSetService.xsd.
+Creating file AllOperationMessageSetService.xsd in the workspace.
+Creating file AllOperationMessageSetService_InlineSchema1.xsd in the workspace.
+
+Elapsed time processing this message definition file: 0.293 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

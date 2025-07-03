@@ -1,0 +1,38 @@
+BROKER SCHEMA AllOperation
+
+
+CREATE COMPUTE MODULE MyFlow_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		DECLARE ns NAMESPACE 'http://tempuri.org/AllOperationMessageSet';
+		DECLARE intA INT;
+		DECLARE intB INT;
+		DECLARE resultC INT;
+	IF InputLocalEnvironment.Destination.RouterList.DestinationData.labelName='Addition' THEN
+		SET intA = InputRoot.SOAP.Body.ns:RequestAdd.ns:intA;
+		SET intB = InputRoot.SOAP.Body.ns:RequestAdd.ns:intB;
+		SET OutputRoot.SOAP.Body.ns:ResponseAdd.ns:resultC= intA+intB;
+		
+		ELSEIF InputLocalEnvironment.Destination.RouterList.DestinationData.labelName='Sub' THEN
+		SET intA = InputRoot.SOAP.Body.ns:RequestSub.ns:intA;
+		SET intB = InputRoot.SOAP.Body.ns:RequestSub.ns:intB;
+		SET OutputRoot.SOAP.Body.ns:ResponseSub.ns:resultC= intA-intB;
+		
+		ELSEIF InputLocalEnvironment.Destination.RouterList.DestinationData.labelName='Multi' THEN
+		SET intA = InputRoot.SOAP.Body.ns:RequestMutli.ns:intA;
+		SET intB = InputRoot.SOAP.Body.ns:RequestMutli.ns:intB;
+		SET OutputRoot.SOAP.Body.ns:ResponseMutli.ns:resultC= intA*intB;
+		
+		ELSEIF InputLocalEnvironment.Destination.RouterList.DestinationData.labelName='Div' THEN
+		SET intA = InputRoot.SOAP.Body.ns:RequestDiv.ns:intA;
+		SET intB = InputRoot.SOAP.Body.ns:RequestDiv.ns:intB;
+		SET OutputRoot.SOAP.Body.ns:ResponseDiv.ns:resultC= intA/intB;
+		END IF;
+		RETURN TRUE;
+	END;
+
+	
+END MODULE;

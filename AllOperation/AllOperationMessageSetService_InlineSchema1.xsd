@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://tempuri.org/AllOperationMessageSet" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mrm="http://tempuri.org/AllOperationMessageSet" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/AllOperationMessageSet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tempuri.org/AllOperationMessageSet">
+                                                                                                                                                            
+  <xsd:element name="intA" type="xsd:int"/>
+              
+  <xsd:element name="intB" type="xsd:int"/>
+              
+  <xsd:element name="resultC" type="xsd:int"/>
+              
+  <xsd:element name="fcode" type="xsd:string"/>
+              
+  <xsd:element name="fmessage" type="xsd:string"/>
+              
+  <xsd:complexType name="RequestAdd">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:intA"/>
+                
+      <xsd:element ref="mrm:intB"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="ResponseAdd">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:resultC"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="RequestSub">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:intA"/>
+                
+      <xsd:element ref="mrm:intB"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="ResponseSub">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:resultC"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="RequestMutli">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:intA"/>
+                
+      <xsd:element ref="mrm:intB"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="ResponseMutli">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:resultC"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="RequestDiv">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:intA"/>
+                
+      <xsd:element ref="mrm:intB"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:complexType name="ResponseDiv">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:resultC"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="RequestAdd" type="mrm:RequestAdd"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="ResponseAdd" type="mrm:ResponseAdd"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="RequestSub" type="mrm:RequestSub"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="ResponseSub" type="mrm:ResponseSub"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="RequestMutli" type="mrm:RequestMutli"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="ResponseMutli" type="mrm:ResponseMutli"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="RequestDiv" type="mrm:RequestDiv"/>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="ResponseDiv" type="mrm:ResponseDiv"/>
+              
+  <xsd:complexType name="Error">
+            
+    <xsd:sequence>
+                
+      <xsd:element ref="mrm:fcode"/>
+                
+      <xsd:element ref="mrm:fmessage"/>
+              
+    </xsd:sequence>
+          
+  </xsd:complexType>
+              
+  <xsd:element ibmSchExtn:docRoot="true" name="Error" type="mrm:Error"/>
+          
+</xsd:schema>

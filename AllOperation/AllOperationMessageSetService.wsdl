@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns="http://tempuri.org/AllOperationMessageSet" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/AllOperationMessageSet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AllOperationMessageSet" targetNamespace="http://tempuri.org/AllOperationMessageSet">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="AllOperationMessageSetService_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="AllOperationMessageSetSOAP_HTTP_Binding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+    
+  <wsdl:types>
+        
+    <xsd:schema xmlns:mrm="http://tempuri.org/AllOperationMessageSet" targetNamespace="http://tempuri.org/AllOperationMessageSet">
+      
+      <xsd:include schemaLocation="AllOperationMessageSetService_InlineSchema1.xsd"/>
+    </xsd:schema>
+      
+  </wsdl:types>
+    
+  <wsdl:message name="Sub_in">
+        
+    <wsdl:part element="RequestSub" name="RequestSub"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Sub_out">
+        
+    <wsdl:part element="ResponseSub" name="ResponseSub"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Sub_fault1">
+        
+    <wsdl:part element="Error" name="Error"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Div_in">
+        
+    <wsdl:part element="RequestDiv" name="RequestDiv"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Div_out">
+        
+    <wsdl:part element="ResponseDiv" name="ResponseDiv"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Div_fault1">
+        
+    <wsdl:part element="Error" name="Error"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Multi_in">
+        
+    <wsdl:part element="RequestMutli" name="RequestMutli"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Multi_out">
+        
+    <wsdl:part element="ResponseMutli" name="ResponseMutli"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Multi_fault1">
+        
+    <wsdl:part element="Error" name="Error"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Addition_in">
+        
+    <wsdl:part element="RequestAdd" name="RequestAdd"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Addition_out">
+        
+    <wsdl:part element="ResponseAdd" name="ResponseAdd"/>
+      
+  </wsdl:message>
+    
+  <wsdl:message name="Addition_fault1">
+        
+    <wsdl:part element="Error" name="Error"/>
+      
+  </wsdl:message>
+    
+  <wsdl:portType name="AllOperationMessageSetPortType">
+        
+    <wsdl:operation name="Sub">
+            
+      <wsdl:input message="Sub_in" name="Sub_Input"/>
+            
+      <wsdl:output message="Sub_out" name="Sub_Output"/>
+            
+      <wsdl:fault message="Sub_fault1" name="Sub_Fault"/>
+          
+    </wsdl:operation>
+        
+    <wsdl:operation name="Div">
+            
+      <wsdl:input message="Div_in" name="Div_Input"/>
+            
+      <wsdl:output message="Div_out" name="Div_Output"/>
+            
+      <wsdl:fault message="Div_fault1" name="Div_Fault"/>
+          
+    </wsdl:operation>
+        
+    <wsdl:operation name="Multi">
+            
+      <wsdl:input message="Multi_in" name="Multi_Input"/>
+            
+      <wsdl:output message="Multi_out" name="Multi_Output"/>
+            
+      <wsdl:fault message="Multi_fault1" name="Multi_Fault"/>
+          
+    </wsdl:operation>
+        
+    <wsdl:operation name="Addition">
+            
+      <wsdl:input message="Addition_in" name="Addition_Input"/>
+            
+      <wsdl:output message="Addition_out" name="Addition_Output"/>
+            
+      <wsdl:fault message="Addition_fault1" name="Addition_Fault"/>
+          
+    </wsdl:operation>
+      
+  </wsdl:portType>
+    
+  <wsdl:binding name="AllOperationMessageSetSOAP_HTTP_Binding" type="AllOperationMessageSetPortType">
+        
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+    <wsdl:operation name="Sub">
+            
+      <soap:operation soapAction="SoapActionName"/>
+            
+      <wsdl:input name="Sub_Input">
+                
+        <soap:body parts="RequestSub" use="literal"/>
+              
+      </wsdl:input>
+            
+      <wsdl:output name="Sub_Output">
+                
+        <soap:body parts="ResponseSub" use="literal"/>
+              
+      </wsdl:output>
+            
+      <wsdl:fault name="Sub_Fault">
+                
+        <soap:fault name="Sub_Fault" use="literal"/>
+              
+      </wsdl:fault>
+          
+    </wsdl:operation>
+        
+    <wsdl:operation name="Div">
+            
+      <soap:operation soapAction="SoapActionName"/>
+            
+      <wsdl:input name="Div_Input">
+                
+        <soap:body parts="RequestDiv" use="literal"/>
+              
+      </wsdl:input>
+            
+      <wsdl:output name="Div_Output">
+                
+        <soap:body parts="ResponseDiv" use="literal"/>
+              
+      </wsdl:output>
+            
+      <wsdl:fault name="Div_Fault">
+                
+        <soap:fault name="Div_Fault" use="literal"/>
+              
+      </wsdl:fault>
+          
+    </wsdl:operation>
+        
+    <wsdl:operation name="Multi">
+            
+      <soap:operation soapAction="SoapActionName"/>
+            
+      <wsdl:input name="Multi_Input">
+                
+        <soap:body parts="RequestMutli" use="literal"/>
+              
+      </wsdl:input>
+            
+      <wsdl:output name="Multi_Output">
+                
+        <soap:body parts="ResponseMutli" use="literal"/>
+              
+      </wsdl:output>
+            
+      <wsdl:fault name="Multi_Fault">
+                
+        <soap:fault name="Multi_Fault" use="literal"/>
+              
+      </wsdl:fault>
+          
+    </wsdl:operation>
+        
+    <wsdl:operation name="Addition">
+            
+      <soap:operation soapAction="SoapActionName"/>
+            
+      <wsdl:input name="Addition_Input">
+                
+        <soap:body parts="RequestAdd" use="literal"/>
+              
+      </wsdl:input>
+            
+      <wsdl:output name="Addition_Output">
+                
+        <soap:body parts="ResponseAdd" use="literal"/>
+              
+      </wsdl:output>
+            
+      <wsdl:fault name="Addition_Fault">
+                
+        <soap:fault name="Addition_Fault" use="literal"/>
+              
+      </wsdl:fault>
+          
+    </wsdl:operation>
+      
+  </wsdl:binding>
+    
+  <wsdl:service name="AllOperationMessageSetSOAP_HTTP_Service">
+        
+    <wsdl:port binding="AllOperationMessageSetSOAP_HTTP_Binding" name="AllOperationMessageSetSOAP_HTTP_Port">
+            
+      <soap:address location="http://localhost:7800/AllOperationMessageSetSOAP_HTTP_Service"/>
+          
+    </wsdl:port>
+      
+  </wsdl:service>
+  
+</wsdl:definitions>
